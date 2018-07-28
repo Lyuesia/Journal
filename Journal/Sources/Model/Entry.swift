@@ -11,7 +11,7 @@ import Foundation
 class Entry {
     var content: String
     var writtenDate: Date
-    var id: Int
+    let id: Int
     
     private static var idFactory = 0
     
