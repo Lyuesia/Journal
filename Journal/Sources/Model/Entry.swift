@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Entry {
+struct Entry {
     var content: String
     var writtenDate: Date
     let id: Int
