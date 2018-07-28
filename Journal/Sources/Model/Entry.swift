@@ -13,9 +13,9 @@ class Entry {
     var writtenDate: Date
     var id: Int
     
-    static var idFactory = 0
+    private static var idFactory = 0
     
-    static func generateId() -> Int {
+    private static func generateId() -> Int {
         idFactory += 1
         return idFactory
     }
