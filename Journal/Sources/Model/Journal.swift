@@ -12,5 +12,6 @@ protocol Journal {
     func add(_ entry: Entry)
     func update(_ entry: Entry)
     func remove(_ entry: Entry)
-    func recentEntries(max: Int) -> [Entry]
+    func entry(with id: Int) -> Entry?
 }
+

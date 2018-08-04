@@ -7,38 +7,33 @@
 //
 
 import XCTest
+@testable import Journal
 
 class JournalTests: XCTestCase {
     
-    struct Entry {
-        var content: String
-        var writtenDate: Date
-        let id: Int
-        
-        private static var idFactory = 0
-        
-        private static func generateId() -> Int {
-            idFactory += 1
-            return idFactory
-        }
-        
-        init(date: Date, content: String) {
-            self.content = content
-            writtenDate = date
-            self.id = Entry.generateId()
-        }
-    }
-
-    
-    func testExample() {
+    func testEditEntryText() {
         //setup
         var entry = Entry(date: Date(), content: "aaaaa")
         //run
         entry.content = "wwwwww"
         //verify
         XCTAssertEqual(entry.content, "wwwwww")
-        //teardown
+        //teardown (상태초기화)
     }
     
+    func testAddEntryToJournal() {
+        let journal = InMemoryJournal()
+        let newEntry = Entry(date: Date(), content: "일기")
+        
+        journal.add(newEntry)
+        
+        let entryInJournal: Entry? = journal.entry(with:1)
+        
+        XCTAssertEqual((entryInJournal), .some(newEntry))
+        XCTAssertTrue(entryInJournal == newEntry)
+        XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
+    }
     
 }
+
+

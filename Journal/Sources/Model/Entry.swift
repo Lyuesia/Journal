@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Entry {
+struct Entry: Equatable {
     var content: String
     var writtenDate: Date
     let id: Int
@@ -26,3 +26,5 @@ struct Entry {
         self.id = Entry.generateId()
     }
 }
+
+extension Entry: Identifiable {}

@@ -13,9 +13,10 @@
 		6BB147BE2102F18200AB2D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB147BD2102F18200AB2D24 /* Assets.xcassets */; };
 		6BB147C12102F18200AB2D24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB147BF2102F18200AB2D24 /* LaunchScreen.storyboard */; };
 		6BB1483D210C4B8A00AB2D24 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1483C210C4B8A00AB2D24 /* Entry.swift */; };
-		6BB1483F210C521B00AB2D24 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1483E210C521B00AB2D24 /* Diary.swift */; };
+		6BB1483F210C521B00AB2D24 /* InMemoryJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1483E210C521B00AB2D24 /* InMemoryJournal.swift */; };
 		6BB14847210C57DD00AB2D24 /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB14846210C57DD00AB2D24 /* JournalTests.swift */; };
 		6BEB3A79210F19ED0089DCEA /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB3A78210F19ED0089DCEA /* Journal.swift */; };
+		6BEB3B04211540B10089DCEA /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB3B03211540B10089DCEA /* Identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +38,12 @@
 		6BB147C02102F18200AB2D24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BB147C22102F18200AB2D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BB1483C210C4B8A00AB2D24 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		6BB1483E210C521B00AB2D24 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		6BB1483E210C521B00AB2D24 /* InMemoryJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryJournal.swift; sourceTree = "<group>"; };
 		6BB14844210C57DD00AB2D24 /* JournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB14846210C57DD00AB2D24 /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
 		6BB14848210C57DD00AB2D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BEB3A78210F19ED0089DCEA /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		6BEB3B03211540B10089DCEA /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB147B62102F18100AB2D24 /* AppDelegate.swift */,
+				6BEB3B03211540B10089DCEA /* Identifiable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -138,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB1483C210C4B8A00AB2D24 /* Entry.swift */,
-				6BB1483E210C521B00AB2D24 /* Diary.swift */,
+				6BB1483E210C521B00AB2D24 /* InMemoryJournal.swift */,
 				6BEB3A78210F19ED0089DCEA /* Journal.swift */,
 			);
 			path = Model;
@@ -255,10 +258,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB1483D210C4B8A00AB2D24 /* Entry.swift in Sources */,
+				6BEB3B04211540B10089DCEA /* Identifiable.swift in Sources */,
 				6BEB3A79210F19ED0089DCEA /* Journal.swift in Sources */,
 				6BB147B92102F18100AB2D24 /* ViewController.swift in Sources */,
 				6BB147B72102F18100AB2D24 /* AppDelegate.swift in Sources */,
-				6BB1483F210C521B00AB2D24 /* Diary.swift in Sources */,
+				6BB1483F210C521B00AB2D24 /* InMemoryJournal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

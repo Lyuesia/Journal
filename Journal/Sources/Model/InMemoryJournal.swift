@@ -8,12 +8,11 @@
 
 import Foundation
 
-class Diary {
-    
+class InMemoryJournal: Journal {
+
     var book = [Entry]()
     
-    func add(content: String) {
-        let newEntry = Entry(date: Date(), content: content)
+    func add(_ newEntry: Entry) {
         book.append(newEntry)
     }
     
@@ -29,4 +28,17 @@ class Diary {
     func reorganizeBook() {
         
     }
+    
+    func entry(with id: Int) -> Entry? {
+        return book[id]
+    }
+    
+    func update(_ entry: Entry) {
+        
+    }
+    
+    func remove(_ entry: Entry) {
+        
+    }
+    
 }
