@@ -18,27 +18,30 @@ class InMemoryJournal: Journal {
     
     func update(index: Int, to content: String) {
         //code
-        reorganizeBook()
     }
     
     func remove(index: Int) {
         //code
     }
     
-    func reorganizeBook() {
-        
-    }
-    
     func entry(with id: Int) -> Entry? {
         return book[id]
     }
     
-    func update(_ entry: Entry) {
-        
+    func update(_ updatedEntry: Entry) {
+        if let indexOfTargetEntry = book.index(where: {$0.id == updatedEntry.id}) {
+            book[indexOfTargetEntry] = updatedEntry
+        }
     }
     
     func remove(_ entry: Entry) {
-        
+        if let indexOfTargetEntry = book.index(where: {$0.id == entry.id}) {
+            book.remove(at: indexOfTargetEntry)
+        }
+    }
+    
+    init(entries: [Entry] = []) { // = 이후는 아무 값도 안넣엇을 경우의 디폴트값
+        book = entries
     }
     
 }

@@ -9,8 +9,8 @@
 import Foundation
 
 struct Entry: Equatable {
-    var content: String
-    var writtenDate: Date
+    var text: String
+    var createdAt: Date
     let id: Int
     
     private static var idFactory = 0
@@ -20,9 +20,9 @@ struct Entry: Equatable {
         return idFactory
     }
     
-    init(date: Date, content: String) {
-        self.content = content
-        writtenDate = date
+    init(createdAt: Date, text: String) {
+        self.text = text
+        self.createdAt = createdAt
         self.id = Entry.generateId()
     }
 }
