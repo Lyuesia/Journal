@@ -11,6 +11,11 @@ import XCTest
 
 class JournalTests: XCTestCase {
     
+    override func setUp() {
+        // 계속 쓰이는 변수 선언등
+    }
+    
+    
     func testEditEntryText() {
         //setup
         var entry = Entry(createdAt: Date(), text: "aaaaa")
@@ -66,6 +71,17 @@ class JournalTests: XCTestCase {
         XCTAssertEqual(journal.book.count, 0)
     }
     
+    func testRecentEntry() {
+        let dayBeforeYesterday = Entry(createdAt: Date.distantPast, text: "그저께일기")
+        let yesterDay = Entry(createdAt: Date(), text: "어제일기")
+        let today = Entry(createdAt: Date.distantFuture, text: "오늘일기")
+        let journal = InMemoryJournal(entries: [dayBeforeYesterday, yesterDay, today])
+        // Run
+        let entries = journal.recentEntries(max: 3)
+        // Verify
+        XCTAssertEqual(entries.count, 3)
+        XCTAssertEqual(entries, [today, yesterDay, dayBeforeYesterday])
+    }
 }
 
 

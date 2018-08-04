@@ -40,6 +40,13 @@ class InMemoryJournal: Journal {
         }
     }
     
+    func recentEntries(max numberOfEntries: Int) -> [Entry] {
+        let sortedBook = book.sorted { $0.createdAt > $1.createdAt }
+            .prefix(numberOfEntries)
+        
+        return Array(sortedBook)
+    }
+    
     init(entries: [Entry] = []) { // = 이후는 아무 값도 안넣엇을 경우의 디폴트값
         book = entries
     }
