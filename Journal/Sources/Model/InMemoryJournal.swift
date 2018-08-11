@@ -40,7 +40,10 @@ class InMemoryJournal: Journal {
         }
     }
     
-    func recentEntries(max numberOfEntries: Int) -> [Entry] {
+    func recentEntries(max numberOfEntries: Int) -> [Entry]? {
+        if numberOfEntries < 0 {
+            return nil
+        }
         let sortedBook = book.sorted { $0.createdAt > $1.createdAt }
             .prefix(numberOfEntries)
         

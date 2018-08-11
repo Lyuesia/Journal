@@ -80,8 +80,15 @@ class JournalTests: XCTestCase {
         // Run
         let entries = journal.recentEntries(max: 3)
         // Verify
-        XCTAssertEqual(entries.count, 3)
+        XCTAssertEqual(entries?.count, 3)
         XCTAssertEqual(entries, [today, yesterDay, dayBeforeYesterday])
+    }
+    func testJournalReturnsNilWhenMaxIsNegative() {
+        let journal = InMemoryJournal()
+        
+        let entries = journal.recentEntries(max: -10)
+        
+        XCTAssertEqual(entries, nil)
     }
 }
 

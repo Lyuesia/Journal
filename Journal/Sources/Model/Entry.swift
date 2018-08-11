@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Entry: Equatable {
+struct Entry: Equatable, EntryType {
     var text: String
     var createdAt: Date
     let id: Int
