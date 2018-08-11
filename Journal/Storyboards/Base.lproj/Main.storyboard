@@ -69,6 +69,7 @@
                         <outlet property="button" destination="24K-8L-LIu" id="cd3-1y-KgM"/>
                         <outlet property="dateLable" destination="oTt-eF-fOh" id="gQV-iw-IVT"/>
                         <outlet property="textView" destination="ElH-mm-hoH" id="UG4-Jq-6CM"/>
+                        <outlet property="textViewBottomConstraint" destination="YCp-vo-BLl" id="6DO-Pa-Ogr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hm2-eC-ifH" userLabel="First Responder" sceneMemberID="firstResponder"/>

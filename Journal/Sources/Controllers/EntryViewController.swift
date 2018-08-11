@@ -16,6 +16,7 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var dateLable: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
 
     let journal: Journal = InMemoryJournal()
     private var editingEntry: Entry?
@@ -25,13 +26,14 @@ class EntryViewController: UIViewController {
             textView.isEditable = true
             textView.becomeFirstResponder()
             button.setTitle("저장", for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
-            
         }
         else {
             textView.isEditable = false
             textView.resignFirstResponder()
             button.setTitle("수정", for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self, action: #selector(editEntry), for: .touchUpInside)
         }
     }
@@ -50,8 +52,53 @@ class EntryViewController: UIViewController {
         
         dateLable.text = DateFormatter.entryDateFormatter.string(from: Date())
         button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_ :)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_ :)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
     }
+    @objc func keyboardWillShow(_ note: Notification) {
+        guard
+            let userInfo = note.userInfo,
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue),
+            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt
+        else { return }
+        
+//        print("키보드높이: \(keyboardFrame.cgRectValue.height)")
+        
+        let keyboardHeight: CGFloat = keyboardFrame.cgRectValue.height
+        let animationOption = UIViewAnimationOptions(rawValue: animationCurve)
+        
+        UIView.animate(withDuration: duration, delay: 0, options: animationOption, animations: {
+            self.textViewBottomConstraint.constant = -keyboardHeight
+            self.view.layoutIfNeeded()
+        }, completion: nil
+        )
+    }
+
     
+    @objc func keyboardWillHide(_ note: Notification) {
+        guard
+            let userInfo = note.userInfo,
+            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt
+            else { return }
+        
+        let animationOption = UIViewAnimationOptions(rawValue: animationCurve)
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: 0.0,
+            options: animationOption,
+            animations: {
+                self.textViewBottomConstraint.constant = 0
+                self.view.layoutIfNeeded()
+        },
+            completion: nil
+        )
+        
+    }
     
     // view가 나올때마다 여러번 호출될수잇음
     override func viewDidAppear(_ animated: Bool) {
