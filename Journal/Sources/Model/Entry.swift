@@ -11,19 +11,13 @@ import Foundation
 struct Entry: Equatable, EntryType {
     var text: String
     var createdAt: Date
-    let id: Int
+    let id: UUID
+
     
-    private static var idFactory = 0
-    
-    private static func generateId() -> Int {
-        idFactory += 1
-        return idFactory
-    }
-    
-    init(createdAt: Date, text: String) {
+    init(id: UUID = UUID(), createdAt: Date = Date(), text: String) {
         self.text = text
         self.createdAt = createdAt
-        self.id = Entry.generateId()
+        self.id = id
     }
 }
 

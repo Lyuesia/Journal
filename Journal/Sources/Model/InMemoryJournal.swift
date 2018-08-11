@@ -9,11 +9,19 @@
 import Foundation
 
 class InMemoryJournal: Journal {
-
-    var book = [Entry]()
+    
+    var book = [UUID: Entry]()
+    
+    func remove(_ entry: Entry) {
+        book[entry.id] = nil
+    }
+    
+    func entry(with id: UUID) -> Entry? {
+        return book[id]
+    }
     
     func add(_ newEntry: Entry) {
-        book.append(newEntry)
+        book[newEntry.id] = newEntry
     }
     
     func update(index: Int, to content: String) {
@@ -24,34 +32,29 @@ class InMemoryJournal: Journal {
         //code
     }
     
-    func entry(with id: Int) -> Entry? {
-        return book[id]
-    }
     
     func update(_ updatedEntry: Entry) {
-        if let indexOfTargetEntry = book.index(where: {$0.id == updatedEntry.id}) {
-            book[indexOfTargetEntry] = updatedEntry
-        }
+        book[updatedEntry.id] = updatedEntry
     }
     
-    func remove(_ entry: Entry) {
-        if let indexOfTargetEntry = book.index(where: {$0.id == entry.id}) {
-            book.remove(at: indexOfTargetEntry)
-        }
-    }
+    
     
     func recentEntries(max numberOfEntries: Int) -> [Entry]? {
-        if numberOfEntries < 0 {
-            return nil
-        }
-        let sortedBook = book.sorted { $0.createdAt > $1.createdAt }
+        let result = self.book
+            .values
+            .sorted { $0.createdAt > $1.createdAt  }
             .prefix(numberOfEntries)
         
-        return Array(sortedBook)
+        return Array(result)
     }
     
-    init(entries: [Entry] = []) { // = 이후는 아무 값도 안넣엇을 경우의 디폴트값
-        book = entries
+    init(entries: [Entry] = []) {
+        var result: [UUID: Entry] = [:]
+        
+        entries.forEach { entry in
+            result[entry.id] = entry
+        }
+        
+        self.book = result
     }
-    
 }
