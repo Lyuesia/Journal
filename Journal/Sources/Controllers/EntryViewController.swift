@@ -12,10 +12,9 @@ import SnapKit
 
 class EntryViewController: UIViewController {
 
+    @IBOutlet weak var button: UIBarButtonItem!
     
-    @IBOutlet weak var dateLable: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
 
     let journal: Journal = InMemoryJournal()
@@ -25,23 +24,25 @@ class EntryViewController: UIViewController {
         if isEditing {
             textView.isEditable = true
             textView.becomeFirstResponder()
-            button.setTitle("저장", for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
+            
+            button.image = #imageLiteral(resourceName: "baseline_save_white_24pt")
+            button.target = self
+            button.action = #selector(saveEntry(_:))
         }
         else {
             textView.isEditable = false
             textView.resignFirstResponder()
-            button.setTitle("수정", for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self, action: #selector(editEntry), for: .touchUpInside)
+            
+            button.image = #imageLiteral(resourceName: "baseline_edit_white_24pt")
+            button.target = self
+            button.action = #selector(editEntry(_:))
         }
     }
     
     @objc func saveEntry(_ sender: Any) {
         let entry: Entry = Entry(text: textView.text)
         journal.add(entry)
-        dateLable.text = DateFormatter.entryDateFormatter.string(from: entry.createdAt)
+//        dateLable.text = DateFormatter.entryDateFormatter.string(from: entry.createdAt)
         updateSubviews(for: false)
     }
     
@@ -49,9 +50,15 @@ class EntryViewController: UIViewController {
     //    logo가 뜬 후 컨트롤이 가능한 view가 불러와지는점시점
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = DateFormatter.entryDateFormatter.string(from: Date())
+
+//        dateLable.text = DateFormatter.entryDateFormatter.string(from: Date())
+        textView.isEditable = true
+        textView.becomeFirstResponder()
         
-        dateLable.text = DateFormatter.entryDateFormatter.string(from: Date())
-        button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
+        button.image = #imageLiteral(resourceName: "baseline_save_white_24pt")
+        button.target = self
+        button.action = #selector(saveEntry(_:))
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_ :)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_ :)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
