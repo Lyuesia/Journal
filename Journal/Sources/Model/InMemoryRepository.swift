@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InMemoryJournal: Journal {
+class InMemoryRepository: EntryRepository {
     
     var book = [UUID: Entry]()
     
@@ -32,12 +32,9 @@ class InMemoryJournal: Journal {
         //code
     }
     
-    
     func update(_ updatedEntry: Entry) {
         book[updatedEntry.id] = updatedEntry
     }
-    
-    
     
     func recentEntries(max numberOfEntries: Int) -> [Entry]? {
         let result = self.book
@@ -46,6 +43,10 @@ class InMemoryJournal: Journal {
             .prefix(numberOfEntries)
         
         return Array(result)
+    }
+    
+    var numberOfEntries: Int {
+        return book.count
     }
     
     init(entries: [Entry] = []) {
@@ -58,3 +59,4 @@ class InMemoryJournal: Journal {
         self.book = result
     }
 }
+

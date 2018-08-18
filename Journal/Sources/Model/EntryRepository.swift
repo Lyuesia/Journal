@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Journal {
+protocol EntryRepository {
     func add(_ entry: Entry)
     func update(_ entry: Entry)
     func remove(_ entry: Entry)

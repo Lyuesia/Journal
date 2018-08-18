@@ -17,7 +17,9 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
 
-    let journal: Journal = InMemoryJournal()
+    
+    var environment: Environment!
+//    let journal: EntryRepository = InMemoryRepository.shared
     private var editingEntry: Entry?
     
     fileprivate func updateSubviews(for isEditing: Bool) {
@@ -40,10 +42,21 @@ class EntryViewController: UIViewController {
     }
     
     @objc func saveEntry(_ sender: Any) {
-        let entry: Entry = Entry(text: textView.text)
-        journal.add(entry)
-//        dateLable.text = DateFormatter.entryDateFormatter.string(from: entry.createdAt)
+        if let oldEntry = self.editingEntry {
+            var oldEntryVar = oldEntry
+            oldEntryVar.text = textView.text
+            environment.entryRepository.update(oldEntryVar)
+            
+        } else {
+            let newEntry: Entry = Entry(text: textView.text)
+            environment.entryRepository.add(newEntry)
+            editingEntry = newEntry
+        }
         updateSubviews(for: false)
+//        let entry: Entry = Entry(text: textView.text)
+//        environment.entryRepository.add(entry)
+////        dateLable.text = DateFormatter.entryDateFormatter.string(from: entry.createdAt)
+//        updateSubviews(for: false)
     }
     
     

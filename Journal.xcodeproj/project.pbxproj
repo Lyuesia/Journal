@@ -9,17 +9,18 @@
 /* Begin PBXBuildFile section */
 		6B45B283211E711100E87EB1 /* EntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45B280211E70A100E87EB1 /* EntryType.swift */; };
 		6B45B285211E713000E87EB1 /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45B284211E713000E87EB1 /* EntryTests.swift */; };
-		6B45B287211E7F7B00E87EB1 /* JournalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45B286211E7F7B00E87EB1 /* JournalHeader.swift */; };
 		6B45B28A211EBF2700E87EB1 /* UIKit+Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45B289211EBF2700E87EB1 /* UIKit+Journal.swift */; };
+		6B45B28C2127AA2E00E87EB1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45B28B2127AA2E00E87EB1 /* TimelineViewController.swift */; };
+		6B45B28E2127B63B00E87EB1 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45B28D2127B63B00E87EB1 /* Environment.swift */; };
 		6BB147B72102F18100AB2D24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB147B62102F18100AB2D24 /* AppDelegate.swift */; };
 		6BB147B92102F18100AB2D24 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB147B82102F18100AB2D24 /* EntryViewController.swift */; };
 		6BB147BC2102F18100AB2D24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB147BA2102F18100AB2D24 /* Main.storyboard */; };
 		6BB147BE2102F18200AB2D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB147BD2102F18200AB2D24 /* Assets.xcassets */; };
 		6BB147C12102F18200AB2D24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB147BF2102F18200AB2D24 /* LaunchScreen.storyboard */; };
 		6BB1483D210C4B8A00AB2D24 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1483C210C4B8A00AB2D24 /* Entry.swift */; };
-		6BB1483F210C521B00AB2D24 /* InMemoryJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1483E210C521B00AB2D24 /* InMemoryJournal.swift */; };
+		6BB1483F210C521B00AB2D24 /* InMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB1483E210C521B00AB2D24 /* InMemoryRepository.swift */; };
 		6BB14847210C57DD00AB2D24 /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB14846210C57DD00AB2D24 /* JournalTests.swift */; };
-		6BEB3A79210F19ED0089DCEA /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB3A78210F19ED0089DCEA /* Journal.swift */; };
+		6BEB3A79210F19ED0089DCEA /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB3A78210F19ED0089DCEA /* EntryRepository.swift */; };
 		6BEB3B04211540B10089DCEA /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB3B03211540B10089DCEA /* Identifiable.swift */; };
 		85D71BBC9497D2424E9DC5BE /* Pods_JournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8C15200147212BC268FBA0 /* Pods_JournalTests.framework */; };
 		ED58EDC3964DE212BE43C9C0 /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3BD044E475FBC28E71EA7B /* Pods_Journal.framework */; };
@@ -40,8 +41,9 @@
 		595175FD3AA7A6FD932F4249 /* Pods-JournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JournalTests/Pods-JournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B45B280211E70A100E87EB1 /* EntryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryType.swift; sourceTree = "<group>"; };
 		6B45B284211E713000E87EB1 /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
-		6B45B286211E7F7B00E87EB1 /* JournalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHeader.swift; sourceTree = "<group>"; };
 		6B45B289211EBF2700E87EB1 /* UIKit+Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Journal.swift"; sourceTree = "<group>"; };
+		6B45B28B2127AA2E00E87EB1 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		6B45B28D2127B63B00E87EB1 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		6BB147B32102F18100AB2D24 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB147B62102F18100AB2D24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB147B82102F18100AB2D24 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
@@ -50,11 +52,11 @@
 		6BB147C02102F18200AB2D24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BB147C22102F18200AB2D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BB1483C210C4B8A00AB2D24 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		6BB1483E210C521B00AB2D24 /* InMemoryJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryJournal.swift; sourceTree = "<group>"; };
+		6BB1483E210C521B00AB2D24 /* InMemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryRepository.swift; sourceTree = "<group>"; };
 		6BB14844210C57DD00AB2D24 /* JournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB14846210C57DD00AB2D24 /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
 		6BB14848210C57DD00AB2D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BEB3A78210F19ED0089DCEA /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		6BEB3A78210F19ED0089DCEA /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		6BEB3B03211540B10089DCEA /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		7E246AB27394D68B9BA95768 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
 		99A0BA152B0C3EFDF753A1EE /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,7 +96,6 @@
 		6B45B288211E816400E87EB1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6B45B286211E7F7B00E87EB1 /* JournalHeader.swift */,
 			);
 			name = View;
 			path = "New Group";
@@ -163,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB147B82102F18100AB2D24 /* EntryViewController.swift */,
+				6B45B28B2127AA2E00E87EB1 /* TimelineViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -174,6 +176,7 @@
 				6BEB3B03211540B10089DCEA /* Identifiable.swift */,
 				6B45B280211E70A100E87EB1 /* EntryType.swift */,
 				6B45B289211EBF2700E87EB1 /* UIKit+Journal.swift */,
+				6B45B28D2127B63B00E87EB1 /* Environment.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -182,8 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				6BB1483C210C4B8A00AB2D24 /* Entry.swift */,
-				6BB1483E210C521B00AB2D24 /* InMemoryJournal.swift */,
-				6BEB3A78210F19ED0089DCEA /* Journal.swift */,
+				6BB1483E210C521B00AB2D24 /* InMemoryRepository.swift */,
+				6BEB3A78210F19ED0089DCEA /* EntryRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -391,13 +394,14 @@
 			files = (
 				6BB1483D210C4B8A00AB2D24 /* Entry.swift in Sources */,
 				6BEB3B04211540B10089DCEA /* Identifiable.swift in Sources */,
-				6B45B287211E7F7B00E87EB1 /* JournalHeader.swift in Sources */,
-				6BEB3A79210F19ED0089DCEA /* Journal.swift in Sources */,
+				6BEB3A79210F19ED0089DCEA /* EntryRepository.swift in Sources */,
 				6B45B283211E711100E87EB1 /* EntryType.swift in Sources */,
 				6BB147B92102F18100AB2D24 /* EntryViewController.swift in Sources */,
 				6BB147B72102F18100AB2D24 /* AppDelegate.swift in Sources */,
 				6B45B28A211EBF2700E87EB1 /* UIKit+Journal.swift in Sources */,
-				6BB1483F210C521B00AB2D24 /* InMemoryJournal.swift in Sources */,
+				6BB1483F210C521B00AB2D24 /* InMemoryRepository.swift in Sources */,
+				6B45B28C2127AA2E00E87EB1 /* TimelineViewController.swift in Sources */,
+				6B45B28E2127B63B00E87EB1 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

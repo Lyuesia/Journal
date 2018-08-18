@@ -30,6 +30,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navViewController.navigationBar.barTintColor = UIColor(patternImage: bgimage!)
             
         }
+        
+        if
+            let navigationController = window?.rootViewController as? UINavigationController,
+            let timelineViewController = navigationController.topViewController as? TimelineViewController {
+            let repo = InMemoryRepository(entries: [
+                Entry(text: "일기 1"),
+                Entry(text: "일기 2"),
+                Entry(text: "일기 3"),
+                ]
+            )
+            timelineViewController.environment = Environment(
+                entryRepository: repo
+            )
+        }
+        
         return true
     }
 

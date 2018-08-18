@@ -28,7 +28,7 @@ class JournalTests: XCTestCase {
     }
     
     func testAddEntryToJournal() {
-        let journal = InMemoryJournal()
+        let journal = InMemoryRepository()
         let newEntry = Entry(createdAt: Date(), text: "일기")
         
         journal.add(newEntry)
@@ -43,7 +43,7 @@ class JournalTests: XCTestCase {
     
     func testGetEntryWithId() {
         let oldEntry = Entry(createdAt: Date(), text: "일기")
-        let journal = InMemoryJournal(entries: [oldEntry])
+        let journal = InMemoryRepository(entries: [oldEntry])
         
         let entry = journal.book[0]
         
@@ -53,7 +53,7 @@ class JournalTests: XCTestCase {
     
     func testUpdateEntry() {
         var oldEntry = Entry(createdAt: Date(), text: "일기")
-        let journal = InMemoryJournal(entries: [oldEntry])
+        let journal = InMemoryRepository(entries: [oldEntry])
         
         oldEntry.text = "일기 수정"
         journal.update(oldEntry)
@@ -65,7 +65,7 @@ class JournalTests: XCTestCase {
     
     func testRemoveEntryFromJournal() {
         let testEntry = Entry(createdAt: Date(), text: "삭제")
-        let journal = InMemoryJournal(entries: [testEntry])
+        let journal = InMemoryRepository(entries: [testEntry])
         
         journal.remove(testEntry)
         
@@ -76,7 +76,7 @@ class JournalTests: XCTestCase {
         let dayBeforeYesterday = Entry(createdAt: Date.distantPast, text: "그저께일기")
         let yesterDay = Entry(createdAt: Date(), text: "어제일기")
         let today = Entry(createdAt: Date.distantFuture, text: "오늘일기")
-        let journal = InMemoryJournal(entries: [dayBeforeYesterday, yesterDay, today])
+        let journal = InMemoryRepository(entries: [dayBeforeYesterday, yesterDay, today])
         // Run
         let entries = journal.recentEntries(max: 3)
         // Verify
@@ -84,7 +84,7 @@ class JournalTests: XCTestCase {
         XCTAssertEqual(entries, [today, yesterDay, dayBeforeYesterday])
     }
     func testJournalReturnsNilWhenMaxIsNegative() {
-        let journal = InMemoryJournal()
+        let journal = InMemoryRepository()
         
         let entries = journal.recentEntries(max: -10)
         
